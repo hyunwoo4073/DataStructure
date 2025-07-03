@@ -122,3 +122,23 @@ void PrintNode(Node* _Node)
     else
         printf("Next: %d\n", _Node->NextNode->Data);
 }
+
+void PrintReverse(Node* Head)
+{
+    Node* Tail = Head;
+
+    // 리스트 끝까지 이동
+    while ( Tail->NextNode != NULL )
+    {
+        Tail = Tail->NextNode;
+    }
+
+    printf("\nReverse Print...\n");
+    
+    // 끝에서부터 출력
+    while ( Tail != NULL )
+    {
+        printf("%d\n", Tail->Data);
+        Tail = Tail->PrevNode;
+    }
+}

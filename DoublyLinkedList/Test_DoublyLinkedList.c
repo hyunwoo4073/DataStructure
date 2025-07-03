@@ -38,6 +38,8 @@ int main(void)
         printf("List[%d] : %d\n", i, Current->Data);
     }
 
+    PrintReverse(List);
+
     // 모든 노드를 메모리에서 제거
     printf("\nDestroying List...\n");
 
