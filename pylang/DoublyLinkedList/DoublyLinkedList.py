@@ -32,6 +32,25 @@ class DoublyLinkedList:
         if self.Tail == Current:
             self.Tail = NewNode
 
+    def InsertBefore(self, Current, Data):
+        NewNode = Node(Data)
+
+        if self.Head is None:
+            self.Head = NewNode
+            return
+        
+        if self.Head == Current:
+            NewNode.NextNode = self.Head
+            self.Head.PrevNode = NewNode
+            self.Head = NewNode
+            return
+        
+        NewNode.NextNode = Current
+        NewNode.PrevNode = Current.PrevNode
+        Current.PrevNode.NextNode = NewNode
+        Current.PrevNode = NewNode
+        
+
     def RemoveNode(self, Remove):
         if self.Head == Remove:
             self.Head = Remove.NextNode
@@ -69,4 +88,16 @@ Dl.AppendNode(20)
 Dl.AppendNode(40)
 Dl.AppendNode(50)
 
+Dl.PrintList()
+
+print("\n데이터 삽입 후\n")
+Current = Dl.GetNodeAt(2)
+Dl.InsertAfter(Current, 3000)
+Dl.InsertBefore(Current, 5000)
+Dl.PrintList()
+
+
+print("\n노드 삭제\n")
+remove = Dl.GetNodeAt(5)
+Dl.RemoveNode(remove)
 Dl.PrintList()
