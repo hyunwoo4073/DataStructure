@@ -64,3 +64,23 @@ void LCRS_PrintTree(LCRSNode* Node, int Depth)
     if (Node->RightSibling != NULL)
         LCRS_PrintTree(Node->RightSibling, Depth);
 }
+
+void LCRS_PirntNodesAtLevelHelper(LCRSNode* Node, int CurrentDepth, int TargetLevel)
+{
+    if (Node == NULL)
+        return;
+
+    if (CurrentDepth == TargetLevel)
+        printf("%c", Node->Data);
+
+    LCRS_PirntNodesAtLevelHelper(Node->LeftChild, CurrentDepth + 1, TargetLevel);
+
+    LCRS_PirntNodesAtLevelHelper(Node->RightSibling, CurrentDepth, TargetLevel);
+}
+
+
+void LCRS_PrintNodesAtLevel(LCRSNode* Root, int Level)
+{
+    LCRS_PirntNodesAtLevelHelper(Root, 0, Level);
+    printf("\n");
+}

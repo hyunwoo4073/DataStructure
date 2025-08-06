@@ -32,9 +32,13 @@ int main(void)
 
     // 트리 출력
     LCRS_PrintTree(Root, 0);
+    
+    // 트리 레벨에 따른 출력
+    LCRS_PrintNodesAtLevel(Root, 2);
 
     // 트리 소멸
     LCRS_DestroyTree(Root);
+
     
     return 0;
 }

@@ -20,5 +20,6 @@ void LCRS_DestroyTree(LCRSNode* Root);
 
 void LCRS_AddChildNode(LCRSNode* ParentNode, LCRSNode* ChildNode);
 void LCRS_PrintTree(LCRSNode* Node, int Depth);
-
+void LCRS_PrintNodesAtLevel(LCRSNode* Root, int Level);
+void LCRS_PirntNodesAtLevelHelper(LCRSNode* Node, int CurrentDepth, int TargetLevel);
 #endif
